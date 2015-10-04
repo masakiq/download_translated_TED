@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] ; then
+  echo 'specify video id'
+  exit 1
+fi
+
+dir=videos/$1
+
+wget -O - http://www.ted.com/talks/subtitles/id/$1/lang/en > ./${dir}/en.json
+wget -O - http://www.ted.com/talks/subtitles/id/$1/lang/jpn > ./${dir}/jpn.json
+
+./trans_en.py ./${dir}/en.json > ./${dir}/en.srt
+./trans_jpn.py ./${dir}/jpn.json > ./${dir}/jpn.srt
+
+mencoder ./${dir}/video.mp4 -oac pcm -ovc lavc -alang en -sub ./${dir}/en.srt -utf8 -slang en -subalign 0 -subpos 60 -subfont-outline 5 -subfont-text-scale 4 -font 'Meiryo' -sub-bg-alpha 255 -o ./${dir}/video_tmp.mp4
+mencoder ./${dir}/video_tmp.mp4 -oac pcm -ovc lavc -alang en -sub ./${dir}/jpn.srt -utf8 -slang ja -subalign 0 -subpos 80 -subfont-outline 5 -subfont-text-scale 3 -font 'Meiryo' -sub-bg-alpha 255 -o ./${dir}/video_sub.mp4
+
+rm ./${dir}/en.json
+rm ./${dir}/jpn.json
+rm ./${dir}/en.srt 
+rm ./${dir}/jpn.srt 
+rm ./${dir}/video_tmp.mp4
+rm ./${dir}/video.mp4
+mv ./${dir}/video_sub.mp4 ./${dir}/video.mp4
+
+echo "done"
