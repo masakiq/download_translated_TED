@@ -1,0 +1,38 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] ; then
+  echo 'specify video id'
+  exit 1
+fi
+
+mkdir videos/$1
+dir=videos/$1
+
+wget -O - http://www.ted.com/talks/subtitles/id/$1/lang/en > ./${dir}/en.json
+wget -O - http://www.ted.com/talks/subtitles/id/$1/lang/jpn > ./${dir}/jpn.json
+
+scripts/trans_en.py ./${dir}/en.json > ./${dir}/en.srt
+scripts/trans_jpn.py ./${dir}/jpn.json > ./${dir}/jpn.srt
+
+download_url=`ruby scripts/get_download_url.rb $1`
+video_title=`printf ${download_url} | cut -c 31-`
+
+wget -O - ${download_url} > ./${dir}/${video_title}
+
+video=`find ${dir} -name "*.mp4" -type f`
+
+mencoder ./${video} -oac pcm -ovc lavc -alang en -sub ./${dir}/en.srt -utf8 -slang en -subalign 0 -subpos 59 -subfont-outline 5 -subfont-text-scale 4 -font 'Meiryo' -sub-bg-alpha 255 -o ./${dir}/video_tmp.mp4
+mencoder ./${dir}/video_tmp.mp4 -oac pcm -ovc lavc -alang en -sub ./${dir}/jpn.srt -utf8 -slang ja -subalign 0 -subpos 80 -subfont-outline 5 -subfont-text-scale 3 -font 'Meiryo' -sub-bg-alpha 255 -o ./${dir}/video_sub.mp4
+
+rm ./${dir}/en.json
+rm ./${dir}/jpn.json
+rm ./${dir}/en.srt 
+rm ./${dir}/jpn.srt 
+rm ./${dir}/video_tmp.mp4
+mv ./${dir}/video_sub.mp4 ./${video}
+
+title=`scripts/get_title.rb $1`
+mv videos/$1 videos/${title}
+
+echo "video title : ${title}"
+echo "done."
