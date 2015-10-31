@@ -4,6 +4,8 @@
 
 英語・日本語の２か国語の字幕付きのTEDビデオをダウンロードする
 
+![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/screen_shot.png)
+
 ## 準備
 
 ```
@@ -53,6 +55,9 @@ brew install python
 
 #### video ID を確認する
 
+![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/ted.jpg)
+
+![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/get_id.jpg)
 
 
 #### スクリプト実行
