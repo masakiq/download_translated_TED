@@ -87,3 +87,8 @@ mplayer AlGore_2006-480p.mp4
 ## 参考にさせて頂いたサイト
 
 [日本語字幕付きのTED動画をつくる](http://avaveo.blogspot.jp/2010/06/ted.html)
+
+## Contributing
+
+改善したいことはissueに書いてますので、プルリクエスト頂けると有難いです。  
+また、他に改良して欲しいところなどありましたらissueに下さい。
