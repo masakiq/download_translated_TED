@@ -2,9 +2,11 @@
 
 ## 説明
 
-英語・日本語の２か国語の字幕付きのTEDビデオをダウンロードする
+TEDビデオをダウンロードして、英語・日本語の字幕をつける
 
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/screen_shot.png)
+
+※mac環境でのみ確認済。windowsの人はごめんなさい。
 
 ## 準備
 
@@ -81,3 +83,7 @@ mplayer AlGore_2006-480p.mp4
 - p 一時停止
 - ▶ ジャンプ
 - ◀ 前にジャンプ
+
+## 参考にさせて頂いたサイト
+
+[日本語字幕付きのTED動画をつくる](http://avaveo.blogspot.jp/2010/06/ted.html)
