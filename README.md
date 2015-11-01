@@ -6,18 +6,18 @@ TEDビデオをダウンロードして、英語・日本語の字幕をつけ�
 
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/screen_shot.png)
 
-※mac環境でのみ確認済。windowsの人はごめんなさい。
+※mac環境でのみ確認済
 
 ## 準備
 
 ```
 git clone git@github.com:maeda1150/download_translated_TED.git
+cd download_translated_TED
 ```
-
 
 ### 必要なソフト
 
-#### bash, mplayer, ruby, nokogiri(ruby-gem), python
+#### bash, mplayer, ruby, python
 
 
 ##### mplayer
@@ -35,15 +35,6 @@ which ruby
 brew install ruby
 ```
 
-##### nokogiri
-```
-gem list nokogiri
-```
-入っていない時は
-```
-gem install nokogiri
-```
-
 ##### python
 ```
 which python
@@ -55,7 +46,7 @@ brew install python
 
 ## 使い方
 
-#### video ID を確認する
+#### [ted](https://www.ted.com/)のwebsiteでダウンロードしたい ted ID を確認する
 
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/ted.jpg)
 
@@ -63,9 +54,9 @@ brew install python
 
 
 #### スクリプト実行
-ダウンロードしたいvideo IDを指定する
+ted IDを指定して実行
 ```
-bash ted [video ID]
+bash ted [ted ID]
 ```
 
 `videos`以下に保存されます。
@@ -81,8 +72,8 @@ mplayer AlGore_2006-480p.mp4
 - q 終了
 - f フルスクリーン
 - p 一時停止
-- ▶ ジャンプ
-- ◀ 前にジャンプ
+- ▶ 少し早送り
+- ◀ 少し前に巻き戻し
 
 ## 参考にさせて頂いたサイト
 
