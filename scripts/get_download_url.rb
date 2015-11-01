@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'open-uri'
-require 'nokogiri'
 
 base_url = 'https://www.ted.com/talks/'
 down_load_url = 'http://download.ted.com/talks/'
