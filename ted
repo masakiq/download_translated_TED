@@ -5,8 +5,39 @@ if [ $# -eq 0 ] ; then
   exit 1
 fi
 
-mkdir videos/$1
-dir=videos/$1
+if [ -x "`which mplayer`" ]; then
+  echo 'exist mplayer'
+else
+  echo 'please install mplayer'
+  echo 'brew install mplayer or http://mplayerx.org'
+  exit 1
+fi
+
+if [ -x "`which ruby`" ]; then
+  echo 'exist ruby'
+else
+  echo 'please install ruby'
+  echo 'brew install ruby'
+  exit 1
+fi
+
+if [ -x "`which python`" ]; then
+  echo 'exist python'
+else
+  echo 'please install python'
+  echo 'brew install python'
+  exit 1
+fi
+
+if [ -e ./videos ]; then
+  echo 'exist videos dir'
+else
+  mkdir videos
+fi
+
+title=`scripts/get_title.rb $1`
+mkdir videos/${title}
+dir=videos/${title}
 
 wget -O - http://www.ted.com/talks/subtitles/id/$1/lang/en > ./${dir}/en.json
 wget -O - http://www.ted.com/talks/subtitles/id/$1/lang/jpn > ./${dir}/jpn.json
@@ -30,9 +61,6 @@ rm ./${dir}/en.srt
 rm ./${dir}/jpn.srt 
 rm ./${dir}/video_tmp.mp4
 mv ./${dir}/video_sub.mp4 ./${video}
-
-title=`scripts/get_title.rb $1`
-mv videos/$1 videos/${title}
 
 echo "video title : ${title}"
 echo "done."
