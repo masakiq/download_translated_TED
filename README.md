@@ -30,19 +30,13 @@ which mplayer
 ```
 which ruby
 ```
-入っていない時は
-```
-brew install ruby
-```
+入っていない時は`brew install ruby`
 
 ##### python
 ```
 which python
 ```
-入っていない時は
-```
-brew install python
-```
+入っていない時は`brew install python`
 
 ## 使い方
 
