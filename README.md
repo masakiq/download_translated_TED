@@ -6,7 +6,7 @@ TEDビデオをダウンロードして、英語・日本語の字幕をつけ�
 
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/screen_shot.png)
 
-※mac環境でのみ確認済
+※OS Xでのみ確認済
 
 ## 準備
 
@@ -25,30 +25,29 @@ $ bundle install
 ```
 $ which mplayer
 ```
-入っていない時は `brew install mplayer` または http://mplayerx.org よりダウンロード
+入っていない時は `$ brew install mplayer` または http://mplayerx.org よりダウンロード
 
 ##### ruby
 ```
 $ which ruby
 ```
-入っていない時は`brew install ruby`
+入っていない時は`$ brew install ruby`
 
 ##### python
 ```
 $ which python
 ```
-入っていない時は`brew install python`
+入っていない時は`$ brew install python`
 
 ## 使い方
 
 #### TED ID を調べる
-1. [ted](https://www.ted.com/)のwebsiteで確認する
-
+1. [TED](https://www.ted.com/)のWebSiteで確認する
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/ted.jpg)
-
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/get_id.jpg)
 
-2. コマンドラインから確認する
+1. コマンドラインから確認する
+
 ```
 $ scripts/search.rb
 id. duration title
@@ -60,16 +59,16 @@ id. duration title
  6. 18:00  恐怖が動かすアメリカの政治
 …
 
-[USAGE] 'next': show next videos, '[id]': download translated video
+[USAGE] 'next': show next videos, '[id]': show TED ID, 'exit': exit
 4
 
 TED ID: 2337
 ```
 
 #### スクリプト実行
-ted IDを指定して実行
+TED IDを指定して実行
 ```
-bash ted [ted ID]
+bash ted [TED ID]
 ```
 
 `videos`以下に保存されます。
@@ -77,7 +76,7 @@ bash ted [ted ID]
 #### おすすめの再生方法
 **mplayer**で再生する
 ```
-mplayer AlGore_2006-480p.mp4
+$ mplayer AlGore_2006-480p.mp4
 ```
 
 **mplayer コマンド**
