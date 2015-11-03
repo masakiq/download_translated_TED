@@ -39,6 +39,12 @@ $ which python
 ```
 入っていない時は`$ brew install python`
 
+##### wget
+```
+$ which wget
+```
+入っていない時は`$ brew install wget`
+
 ## 使い方
 
 #### TED ID を調べる

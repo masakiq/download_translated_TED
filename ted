@@ -29,6 +29,14 @@ else
   exit 1
 fi
 
+if [ -x "`which wget`" ]; then
+  echo 'exist wget'
+else
+  echo 'please install wgetn'
+  echo 'brew install wget'
+  exit 1
+fi
+
 if [ -e ./videos ]; then
   echo 'exist videos dir'
 else
