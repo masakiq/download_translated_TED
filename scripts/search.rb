@@ -8,7 +8,6 @@ LIST_URL = '/talks?language=ja&page='
 PER_PAGE = 36
 @page = 1
 @store = {}
-@video_id = 0
 
 def fetch_videos
   html = Nokogiri::HTML(open(PREFIX + LIST_URL + @page.to_s))
@@ -24,7 +23,7 @@ def fetch_videos
   end
 end
 
-def video_id(video_url)
+def ted_id(video_url)
   html = Nokogiri::HTML(open(PREFIX + video_url))
   html.xpath('/html/head/meta').each do |meta|
     next unless meta['name'] == 'twitter:app:url:ipad'
@@ -34,7 +33,7 @@ end
 
 def show_usage
   puts "\n"
-  puts "[USAGE] 'next': show next videos, '[id]': download translated video"
+  puts "[USAGE] 'next': show next videos, '[id]': show TED ID, 'exit': exit"
 end
 
 # main
@@ -46,9 +45,11 @@ loop do
     @page += 1
     puts "\n"
     fetch_videos
-  elsif 0 < cmd.to_i && cmd.to_i < PER_PAGE
+  elsif cmd == 'exit'
+    break
+  elsif 0 < cmd.to_i && cmd.to_i <= PER_PAGE
     puts "\n"
-    puts "TED ID: #{video_id(@store[cmd.to_i])}"
+    puts "TED ID: #{ted_id(@store[cmd.to_i])}"
     break
   end
 end
