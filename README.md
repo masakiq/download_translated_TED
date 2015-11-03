@@ -11,8 +11,9 @@ TEDビデオをダウンロードして、英語・日本語の字幕をつけ�
 ## 準備
 
 ```
-git clone git@github.com:maeda1150/download_translated_TED.git
-cd download_translated_TED
+$ git clone git@github.com:maeda1150/download_translated_TED.git
+$ cd download_translated_TED
+$ bundle install
 ```
 
 ### 必要なソフト
@@ -22,30 +23,48 @@ cd download_translated_TED
 
 ##### mplayer
 ```
-which mplayer
+$ which mplayer
 ```
 入っていない時は `brew install mplayer` または http://mplayerx.org よりダウンロード
 
 ##### ruby
 ```
-which ruby
+$ which ruby
 ```
 入っていない時は`brew install ruby`
 
 ##### python
 ```
-which python
+$ which python
 ```
 入っていない時は`brew install python`
 
 ## 使い方
 
-#### [ted](https://www.ted.com/)のwebsiteでダウンロードしたい ted ID を確認する
+#### TED ID を調べる
+1. [ted](https://www.ted.com/)のwebsiteで確認する
 
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/ted.jpg)
 
 ![](https://raw.githubusercontent.com/maeda1150/download_translated_TED/master/images/get_id.jpg)
 
+2. コマンドラインから確認する
+```
+$ scripts/search.rb
+id. duration title
+ 1. 13:03  日常の音に隠された思いがけない美とは
+ 2. 21:47  なぜ気候変動が人権を脅かすのか
+ 3. 15:57  斬首動画が何百万回も再生されてしまう理由
+ 4. 17:03  学校を閉鎖しようとするタリバンを、私がどう阻止したか
+ 5. 15:16  世間で語られる貧困の嘘
+ 6. 18:00  恐怖が動かすアメリカの政治
+…
+
+[USAGE] 'next': show next videos, '[id]': download translated video
+4
+
+TED ID: 2337
+```
 
 #### スクリプト実行
 ted IDを指定して実行
