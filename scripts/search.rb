@@ -49,6 +49,8 @@ loop do
     break
   elsif 0 < cmd.to_i && cmd.to_i <= PER_PAGE
     puts "\n"
+    `echo #{PREFIX + @store[cmd.to_i]} | pbcopy`
+    puts "URL: #{PREFIX + @store[cmd.to_i]}"
     puts "TED ID: #{ted_id(@store[cmd.to_i])}"
     break
   end
